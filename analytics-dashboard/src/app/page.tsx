@@ -1,9 +1,20 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import RealTimeChart from "@/components/RealTimeChart";
+import VirtualizedTable from "@/components/VirtualizedTable";
+
+type Metric = {
+  id: string;
+  statusCode: number;
+  timestamp: string;
+  cpuUsage: number;
+  memoryUsage: number;
+  networkIn: number;
+  [key: string]: unknown;
+};
 
 export default function AnalyticsDashboardPage() {
-  const [metrics, setMetrics] = useState<any[]>([]);
+  const [metrics, setMetrics] = useState<Metric[]>([]);
 
   useEffect(() => {
     // Open a persistent connection directly to our SSE stream route
@@ -13,7 +24,7 @@ export default function AnalyticsDashboardPage() {
     );
 
     eventSource.onmessage = (event) => {
-      const incomingData = JSON.parse(event.data);
+      const incomingData = JSON.parse(event.data) as Metric;
       setMetrics((prev) => {
         const updated = [...prev, incomingData];
         // Keeps the chart view clear by holding only the last 30 data logs
@@ -43,6 +54,11 @@ export default function AnalyticsDashboardPage() {
         <div className="grid grid-cols-1 gap-6">
           {/* Injecting the rendering layer */}
           <RealTimeChart data={metrics} />
+        </div>
+
+        <div className="grid grid-cols-1 gap-6">
+          {/* Injecting the rendering layer */}
+          <VirtualizedTable logs={metrics} />
         </div>
       </div>
     </div>
