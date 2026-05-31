@@ -9,12 +9,29 @@ export default function WorkspaceDocumentPage() {
   const { content, isSaving, updateContent } = useDocStore();
 
   // 1. LIFECYCLE INITIALIZATION: Pull down the latest backup from local storage on load
+  // useEffect(() => {
+  //   async function restoreBackup() {
+  //     const savedDraft = await loadDraftFromLocal();
+  //     if (savedDraft) {
+  //       // Hydrate our global state manager with the retrieved backup HTML text
+  //       useDocStore.setState({ content: savedDraft });
+  //     }
+  //   }
+  //   restoreBackup();
+  // }, []);
   useEffect(() => {
     async function restoreBackup() {
       const savedDraft = await loadDraftFromLocal();
+
       if (savedDraft) {
-        // Hydrate our global state manager with the retrieved backup HTML text
+        // Case A: Securely hydrate the view with the retrieved hard drive backup text
         useDocStore.setState({ content: savedDraft });
+      } else {
+        // Case B: If IndexedDB is completely empty (first load), fallback to your default starter text explicitly
+        useDocStore.setState({
+          content:
+            "<h2>Welcome to your secure enterprise workspace node</h2><p>Type <strong>/</strong> to initialize the markdown rendering loops...</p>",
+        });
       }
     }
     restoreBackup();

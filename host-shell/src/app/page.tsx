@@ -24,23 +24,6 @@ export default function HostLandingHub() {
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans">
-      {/* Central Global App Top-Bar Navbar Header */}
-      <header className="border-b border-slate-900 bg-slate-950/80 backdrop-blur sticky top-0 z-50 px-8 py-4">
-        <div className="max-w-6xl mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="h-6 w-6 rounded bg-blue-600 flex items-center justify-center font-bold text-xs text-white">
-              Ω
-            </div>
-            <span className="font-bold text-md tracking-tight text-white">
-              Enterprise MFE Control Gate
-            </span>
-          </div>
-          <span className="text-xs font-mono bg-blue-500/10 text-blue-400 border border-blue-500/20 px-2 py-0.5 rounded">
-            Proxy Node Active
-          </span>
-        </div>
-      </header>
-
       {/* Hero Header Presentation Space */}
       <main className="flex-grow max-w-6xl w-full mx-auto px-8 py-16">
         <section className="mb-16 max-w-2xl">
