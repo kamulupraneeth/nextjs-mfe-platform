@@ -23,7 +23,7 @@ export default function RealTimeChart({ data }: ChartProps) {
   return (
     <div className="p-6 bg-slate-900 border border-slate-800 rounded-xl shadow-xl">
       <h3 className="text-white font-semibold text-lg mb-4">
-        Core Engine Performance (Micro-Frontend 3001)
+        Core Engine Performance (Micro-Frontend)
       </h3>
       <div className="h-75 w-full min-h-75 relative">
         <ResponsiveContainer width="100%" height="100%">

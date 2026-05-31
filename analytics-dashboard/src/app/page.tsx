@@ -109,8 +109,8 @@ export default function AnalyticsDashboardPage() {
             </h1>
           </div>
           <p className="text-xs text-slate-400 mt-1">
-            Running independently on port 3001 | Proxied dynamically via main
-            Host Route Matrix
+            Running independently | Proxied dynamically via main Host Route
+            Matrix
           </p>
         </header>
 

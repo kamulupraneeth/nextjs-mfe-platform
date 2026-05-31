@@ -18,7 +18,7 @@ export default function HostLandingHub() {
         "Granular role-based document authorization system featuring low-latency rich-text canvas buffers and custom authentication middleware tracking rules.",
       path: "/workspace",
       badge: "Active Module",
-      tech: ["Tiptap", "Zustand", "Next-Auth", "IndexedDB"],
+      tech: ["Tiptap", "Zustand", "JWT RBAC", "IndexedDB"],
     },
   ];
 
@@ -85,7 +85,7 @@ export default function HostLandingHub() {
 
       {/* Global Bottom System Footer */}
       <footer className="border-t border-slate-900 py-6 px-8 text-center text-xs text-slate-600 font-mono">
-        Host Node Cluster Execution Environment | Port: 3000
+        Host Node Cluster Execution Environment
       </footer>
     </div>
   );

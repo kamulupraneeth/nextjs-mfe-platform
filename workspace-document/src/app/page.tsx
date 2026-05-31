@@ -62,8 +62,8 @@ export default function WorkspaceDocumentPage() {
             </h1>
           </div>
           <p className="text-xs text-slate-400 mt-1">
-            Isolated text editor core running on port 3002 | Guarded via dynamic
-            background IndexedDB auto-save pipelines
+            Isolated text editor core | Guarded via dynamic background IndexedDB
+            auto-save pipelines
           </p>
         </header>
 
