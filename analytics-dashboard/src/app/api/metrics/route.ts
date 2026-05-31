@@ -10,7 +10,7 @@ export async function GET(request: NextRequest) {
       const interval = setInterval(() => {
         const metricData = {
           id: Math.random().toString(36).substring(2, 9),
-          timestamp: new Date().toLocaleTimeString(),
+          timestamp: new Date().toISOString(),
           cpuUsage: Math.floor(Math.random() * 40) + 40, // Simulates 40% - 80% CPU
           memoryUsage: Math.floor(Math.random() * 20) + 60, // Simulates 60% - 80% RAM
           networkIn: Math.floor(Math.random() * 300) + 100, // Live Network traffic (MB/s)

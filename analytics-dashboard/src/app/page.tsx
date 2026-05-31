@@ -69,8 +69,19 @@ export default function AnalyticsDashboardPage() {
 
     eventSource.onmessage = (event) => {
       const incomingData = JSON.parse(event.data);
-      setChartMetrics((prev) => [...prev, incomingData].slice(-30));
-      setTableLogs((prev) => [incomingData, ...prev].slice(0, 500));
+      const localFormattedTime = new Date(
+        incomingData.timestamp,
+      ).toLocaleTimeString([], {
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+      });
+      const adjustedPacket = {
+        ...incomingData,
+        timestamp: localFormattedTime,
+      };
+      setChartMetrics((prev) => [...prev, adjustedPacket].slice(-30));
+      setTableLogs((prev) => [adjustedPacket, ...prev].slice(0, 500));
     };
 
     eventSource.onerror = (err) => {
