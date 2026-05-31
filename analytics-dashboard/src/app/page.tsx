@@ -66,7 +66,8 @@ export default function AnalyticsDashboardPage() {
   // 2. Core Server-Sent Events (SSE) Stream Integration
   useEffect(() => {
     const eventSource = new EventSource(
-      "http://localhost:3000/analytics/api/metrics",
+      `${process.env.NEXT_PUBLIC_ANALYTICS_URL}/analytics/api/metrics` ||
+        "http://localhost:3001/analytics/api/metrics",
     );
 
     eventSource.onmessage = (event) => {
